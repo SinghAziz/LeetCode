@@ -1,4 +1,4 @@
-// Last updated: 26/06/2026, 11:57:17
+// Last updated: 26/06/2026, 11:58:44
 1class TrieNode {
 2public:
 3    bool isEnd;
@@ -33,36 +33,37 @@
 32                curr->child[index] = temp;
 33            }
 34            curr = curr->child[index];
-35            curr->count += val;
+35            curr->count += diff;
 36        }
-37        if (curr->isEnd) // already exists
-38        {
-39            // Traverse and replace the counts
-40            TrieNode* curr = root;
-41            for (int i = 0; i < key.size(); i++) {
-42                int index = key[i] - 'a';
-43                curr->child[index]->count -= prev;
-44                curr = curr->child[index];
-45            }
-46        }
-47        curr->isEnd = true;
-48    }
-49
-50    int sum(string prefix) {
-51        TrieNode* curr = root;
-52        for (int i = 0; i < prefix.size(); i++) {
-53            int index = prefix[i] - 'a';
-54            if (curr->child[index] == NULL)
-55                return 0;
-56            curr = curr->child[index];
-57        }
-58        return curr->count;
-59    }
-60};
-61
-62/**
-63 * Your MapSum object will be instantiated and called as such:
-64 * MapSum* obj = new MapSum();
-65 * obj->insert(key,val);
-66 * int param_2 = obj->sum(prefix);
-67 */
+37        // if (curr->isEnd) // already exists
+38        // {
+39        //     // int prev = mp[key];
+40        //     // Traverse and replace the counts
+41        //     TrieNode* curr = root;
+42        //     for (int i = 0; i < key.size(); i++) {
+43        //         int index = key[i] - 'a';
+44        //         curr->child[index]->count += val - prev;
+45        //         curr = curr->child[index];
+46        //     }
+47        // }
+48        // curr->isEnd = true;
+49    }
+50
+51    int sum(string prefix) {
+52        TrieNode* curr = root;
+53        for (int i = 0; i < prefix.size(); i++) {
+54            int index = prefix[i] - 'a';
+55            if (curr->child[index] == NULL)
+56                return 0;
+57            curr = curr->child[index];
+58        }
+59        return curr->count;
+60    }
+61};
+62
+63/**
+64 * Your MapSum object will be instantiated and called as such:
+65 * MapSum* obj = new MapSum();
+66 * obj->insert(key,val);
+67 * int param_2 = obj->sum(prefix);
+68 */
