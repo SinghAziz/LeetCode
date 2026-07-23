@@ -1,4 +1,4 @@
-// Last updated: 03/07/2026, 11:35:19
+// Last updated: 24/07/2026, 00:03:35
 1class Solution {
 2public:
 3    int countPrimes(int n) {
@@ -11,9 +11,6 @@
 10                    if (sieve[j]) count--;
 11                    sieve[j] = false;
 12                }
-13        
-14        // for (int i = 2; i<n; i++)
-15        //     if (sieve[i]) count++;
-16        return count-2;
-17    }
-18};
+13        return count-2;
+14    }
+15};
